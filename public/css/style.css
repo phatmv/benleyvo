@@ -1035,7 +1035,6 @@ h6 {
 
 #about .icon{
 	font-family: fontawesome !important;
-	font-style: normal
 }
 #about .about-container .icon-box .icon {
   float: left;
@@ -1068,6 +1067,7 @@ h6 {
 #about .about-container .icon-box .icon i {
   color: #007bff;
   font-size: 24px;
+  font-style: normal;
 }
 
 #about .about-container .icon-box:hover .icon {

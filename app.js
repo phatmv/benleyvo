@@ -3,14 +3,19 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-
+const mongoose = require('mongoose');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
 var app = express();
+//connect to mongo database
+mongoose.connect('mongodb+srv://benleyvo:benleybenly@cluster0.mh0fn.mongodb.net/benleyvo?retryWrites=true&w=majority' , {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+}).then(()=>console.log('Connect success')).catch((er)=>console.log(er))
 
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', path.join(__dirname, 'views/pages'));
 app.set('view engine', 'hbs');
 
 app.use(logger('dev'));
@@ -36,6 +41,7 @@ app.use(function(err, req, res, next) {
   // render the error page
   res.status(err.status || 500);
   res.render('error');
+  
 });
 
 module.exports = app;
